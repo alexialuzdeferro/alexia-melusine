@@ -69,7 +69,40 @@
             letter-spacing: 6px;
             text-transform: uppercase;
             color: var(--mystic-purple);
+            margin-bottom: 1rem;
+        }
+
+        .spiritual-names {
             margin-bottom: 2rem;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .name-item {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--blood-red);
+            letter-spacing: 2px;
+        }
+
+        .name-divider {
+            margin: 0 10px;
+            color: var(--mystic-purple);
+            opacity: 0.5;
+        }
+
+        .spiritual-label {
+            font-family: 'Cinzel', serif;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .intro-text {
@@ -247,6 +280,15 @@
     <header>
         <h1 class="title-gothic">Alexia Melusine</h1>
         <p class="subtitle">Criadora de Conteúdo Digital • Trans Não-Binária</p>
+        
+        <!-- Nomes Espirituais Estratégicos -->
+        <div class="spiritual-names">
+            <span class="name-item">Alexia Rosa de Fogo</span>
+            <span class="name-divider">✦</span>
+            <span class="name-item">Alexia Luz de Ferro</span>
+            <p class="spiritual-label">Nomes de Devoção e Ancestralidade</p>
+        </div>
+
         <div class="intro-text">
             "Entre o véu do crepúsculo e o despertar da carne, eu me encontro. Sou o equilíbrio de Libra na balança do oculto, a voz que ecoa nos movimentos que o mundo tenta silenciar."
         </div>
