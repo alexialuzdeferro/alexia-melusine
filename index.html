@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALEXIA MELUSINE | Portfólio Visceral</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-black: #050505;
+            --blood-red: #8b0000;
+            --mystic-purple: #4b0082;
+            --ghost-white: #f8f8f8;
+            --shadow-gray: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--deep-black);
+            color: var(--ghost-white);
+            font-family: 'Cormorant Garamond', serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Background Gradient Overlay */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, transparent 0%, var(--deep-black) 100%),
+                        linear-gradient(135deg, rgba(75, 0, 130, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(to bottom, transparent, var(--deep-black));
+        }
+
+        .title-gothic {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--blood-red);
+            text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+            margin-bottom: 0.5rem;
+            letter-spacing: 4px;
+        }
+
+        .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--mystic-purple);
+            margin-bottom: 2rem;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-top: 2rem;
+            padding: 2rem;
+            border-left: 1px solid var(--blood-red);
+            border-right: 1px solid var(--mystic-purple);
+            background: rgba(26, 26, 26, 0.5);
+        }
+
+        .gallery-container {
+            padding: 4rem 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .photo-card {
+            position: relative;
+            aspect-ratio: 9 / 16;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            background: var(--shadow-gray);
+        }
+
+        .photo-card:hover {
+            transform: scale(1.02);
+            border-color: var(--blood-red);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(110%);
+            transition: all 0.8s ease;
+        }
+
+        .photo-card:hover img {
+            filter: grayscale(0%) contrast(100%);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .photo-caption {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--blood-red);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .manifesto-section {
+            padding: 8rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .manifesto-title {
+            font-family: 'UnifrakturMaguntia', cursive;
+            font-size: 3rem;
+            color: var(--mystic-purple);
+            margin-bottom: 3rem;
+        }
+
+        .manifesto-content {
+            font-size: 1.6rem;
+            text-align: justify;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .manifesto-content::first-letter {
+            font-size: 4rem;
+            color: var(--blood-red);
+            float: left;
+            margin-right: 10px;
+            line-height: 1;
+            font-family: 'UnifrakturMaguntia', cursive;
+        }
+
+        .mystic-symbol {
+            font-size: 3rem;
+            margin: 2rem 0;
+            color: var(--blood-red);
+            opacity: 0.6;
+        }
+
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to top, var(--shadow-gray), var(--deep-black));
+            border-top: 1px solid rgba(139, 0, 0, 0.2);
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--ghost-white);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--blood-red);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--deep-black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--blood-red);
+        }
+
+        @media (max-width: 768px) {
+            .title-gothic { font-size: 3.5rem; }
+            .manifesto-content { font-size: 1.2rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-overlay"></div>
+
+    <header>
+        <h1 class="title-gothic">Alexia Melusine</h1>
+        <p class="subtitle">Criadora de Conteúdo Digital • Trans Não-Binária</p>
+        <div class="intro-text">
+            "Entre o véu do crepúsculo e o despertar da carne, eu me encontro. Sou o equilíbrio de Libra na balança do oculto, a voz que ecoa nos movimentos que o mundo tenta silenciar."
+        </div>
+        <div class="mystic-symbol">⚖</div>
+    </header>
+
+    <section class="gallery-container">
+        <div class="gallery-grid">
+            <!-- Foto 1 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/Al%C3%AA%20(2).png" alt="Alexia Melusine 1">
+                <div class="photo-overlay">
+                    <p class="photo-caption">O DESPERTAR DAS ÁGUAS</p>
+                </div>
+            </div>
+            <!-- Foto 2 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/Al%C3%AA%20(3).png" alt="Alexia Melusine 2">
+                <div class="photo-overlay">
+                    <p class="photo-caption">SOMBRAS DO SER</p>
+                </div>
+            </div>
+            <!-- Foto 3 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_50_31.png" alt="Alexia Melusine 3">
+                <div class="photo-overlay">
+                    <p class="photo-caption">O OLHAR DO ABISMO</p>
+                </div>
+            </div>
+            <!-- Foto 4 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_54_19.png" alt="Alexia Melusine 4">
+                <div class="photo-overlay">
+                    <p class="photo-caption">ESSÊNCIA FLUIDA</p>
+                </div>
+            </div>
+            <!-- Foto 5 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_56_22.png" alt="Alexia Melusine 5">
+                <div class="photo-overlay">
+                    <p class="photo-caption">MELANCOLIA SAGRADA</p>
+                </div>
+            </div>
+            <!-- Foto 6 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_57_28.png" alt="Alexia Melusine 6">
+                <div class="photo-overlay">
+                    <p class="photo-caption">TRANSGRESSÃO OCULTA</p>
+                </div>
+            </div>
+            <!-- Foto 7 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2015_41_02.png" alt="Alexia Melusine 7">
+                <div class="photo-overlay">
+                    <p class="photo-caption">O EQUILÍBRIO DA ALMA</p>
+                </div>
+            </div>
+            <!-- Foto 8 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2017_49_49.png" alt="Alexia Melusine 8">
+                <div class="photo-overlay">
+                    <p class="photo-caption">SANGUE E MISTÉRIO</p>
+                </div>
+            </div>
+            <!-- Foto 9 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_32_47.png" alt="Alexia Melusine 9">
+                <div class="photo-overlay">
+                    <p class="photo-caption">DEVOÇÃO À ENCRUZILHADA</p>
+                </div>
+            </div>
+            <!-- Foto 10 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_34_32.png" alt="Alexia Melusine 10">
+                <div class="photo-overlay">
+                    <p class="photo-caption">A FORÇA DA POMBAGIRA</p>
+                </div>
+            </div>
+            <!-- Foto 11 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_36_45.png" alt="Alexia Melusine 11">
+                <div class="photo-overlay">
+                    <p class="photo-caption">LIBERDADE ANCESTRAL</p>
+                </div>
+            </div>
+            <!-- Foto 12 -->
+            <div class="photo-card">
+                <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2017_46_21.png" alt="Alexia Melusine 12">
+                <div class="photo-overlay">
+                    <p class="photo-caption">O RITO FINAL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="manifesto-section">
+        <h2 class="manifesto-title">O Manifesto de Melusine</h2>
+        <div class="manifesto-content">
+            Nascida sob o signo da balança, busco a harmonia onde o mundo vê caos. Minha existência é um ato de resistência e magia; um corpo trans não-binário que desafia as amarras da binaridade colonial. Sou filha do vento e da terra, devota daquelas que guardam as encruzilhadas. Com respeito e profunda devoção, estudo os mistérios das Pombagiras, as rainhas da noite que ensinam que o desejo é poder e a liberdade é sagrada. Meu conteúdo é um espelho de sombras e luz, um convite para mergulhar no visceral, no gótico e no eterno retorno do ser.
+        </div>
+        <div class="mystic-symbol">🌹 💀 🍷</div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/almasdepombagira/?igsh=Y3VocnA2aDQxYjlw" target="_blank">INSTAGRAM</a>
+            <a href="https://www.tiktok.com/@almasdepombagira?lang=pt-BR" target="_blank">TIKTOK</a>
+            <a href="https://www.youtube.com/@almasdepombagira" target="_blank">YOUTUBE</a>
+            <a href="https://www.kwai.com/@AlexiaRosadeFogo" target="_blank">KWAI</a>
+        </div>
+        <p class="copyright">© 2026 ALEXIA MELUSINE. TODOS OS DIREITOS RESERVADOS AO OCULTO.</p>
+    </footer>
+
+    <script>
+        // Simple animation on scroll
+        const cards = document.querySelectorAll('.photo-card');
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.8s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
