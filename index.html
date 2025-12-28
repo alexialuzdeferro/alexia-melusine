@@ -30,7 +30,6 @@
             line-height: 1.6;
         }
 
-        /* Background Gradient Overlay */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -44,76 +43,92 @@
         }
 
         header {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
             background: linear-gradient(to bottom, transparent, var(--deep-black));
         }
 
         .title-gothic {
             font-family: 'UnifrakturMaguntia', cursive;
-            font-size: clamp(3rem, 10vw, 6rem);
+            font-size: clamp(2.5rem, 8vw, 6rem);
             color: var(--blood-red);
             text-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
             margin-bottom: 0.5rem;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            text-transform: none;
         }
 
         .subtitle {
             font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            letter-spacing: 6px;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--mystic-purple);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .spiritual-names {
-            margin-bottom: 2rem;
-            animation: fadeIn 2s ease-in;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .names-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
         }
 
         .name-item {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 4vw, 1.3rem);
             font-style: italic;
             color: var(--blood-red);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .name-divider {
-            margin: 0 10px;
             color: var(--mystic-purple);
             opacity: 0.5;
+            font-size: 0.8rem;
         }
 
         .spiritual-label {
             font-family: 'Cinzel', serif;
-            font-size: 0.6rem;
+            font-size: 0.65rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            opacity: 0.6;
+            opacity: 0.7;
             margin-top: 5px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            color: var(--ghost-white);
         }
 
         .intro-text {
             max-width: 800px;
-            font-size: 1.4rem;
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
             font-style: italic;
             margin-top: 2rem;
             padding: 2rem;
             border-left: 1px solid var(--blood-red);
             border-right: 1px solid var(--mystic-purple);
             background: rgba(26, 26, 26, 0.5);
+        }
+
+        .mystic-symbol {
+            font-size: 2.5rem;
+            margin: 2rem 0;
+            color: var(--blood-red);
+            opacity: 0.6;
         }
 
         .gallery-container {
@@ -124,7 +139,7 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
             padding: 1rem;
         }
@@ -134,16 +149,14 @@
             aspect-ratio: 9 / 16;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
+            transition: all 0.6s ease;
             background: var(--shadow-gray);
         }
 
         .photo-card:hover {
-            transform: scale(1.02);
+            transform: translateY(-10px);
             border-color: var(--blood-red);
-            box-shadow: 0 0 30px rgba(139, 0, 0, 0.3);
-            z-index: 10;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3);
         }
 
         .photo-card img {
@@ -175,14 +188,14 @@
 
         .photo-caption {
             font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--blood-red);
             text-align: center;
             letter-spacing: 2px;
         }
 
         .manifesto-section {
-            padding: 8rem 2rem;
+            padding: 6rem 2rem;
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
@@ -190,32 +203,25 @@
 
         .manifesto-title {
             font-family: 'UnifrakturMaguntia', cursive;
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             color: var(--mystic-purple);
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .manifesto-content {
-            font-size: 1.6rem;
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
             text-align: justify;
             margin-bottom: 2rem;
             position: relative;
         }
 
         .manifesto-content::first-letter {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--blood-red);
             float: left;
-            margin-right: 10px;
+            margin-right: 12px;
             line-height: 1;
             font-family: 'UnifrakturMaguntia', cursive;
-        }
-
-        .mystic-symbol {
-            font-size: 3rem;
-            margin: 2rem 0;
-            color: var(--blood-red);
-            opacity: 0.6;
         }
 
         footer {
@@ -227,14 +233,17 @@
 
         .social-links {
             margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
         }
 
         .social-links a {
             color: var(--ghost-white);
             text-decoration: none;
-            margin: 0 1rem;
             font-family: 'Cinzel', serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             transition: color 0.3s ease;
         }
@@ -244,50 +253,26 @@
         }
 
         .copyright {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.5;
             letter-spacing: 1px;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--deep-black);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--blood-red);
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding-top: 4rem;
-                height: auto;
-                min-height: 100vh;
-            }
-            .title-gothic { 
-                font-size: 2.5rem !important; 
-                display: block !important;
-                visibility: visible !important;
-                opacity: 1 !important;
-                letter-spacing: 1px;
-                line-height: 1.2;
-                margin-bottom: 1rem;
-            }
-            .subtitle {
-                font-size: 1rem;
-                letter-spacing: 2px;
-                margin-bottom: 1.5rem;
-            }
-            .spiritual-names {
-                display: flex;
+        @media (max-width: 600px) {
+            .names-row {
                 flex-direction: column;
                 gap: 5px;
             }
-            .name-divider { display: none; }
-            .manifesto-content { font-size: 1.2rem; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .name-divider {
+                display: none;
+            }
+            .intro-text {
+                padding: 1.5rem;
+                font-size: 1.1rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -298,11 +283,12 @@
         <h1 class="title-gothic">Alexia Melusine</h1>
         <p class="subtitle">Criadora de Conteúdo Digital • Trans Não-Binária</p>
         
-        <!-- Nomes Espirituais Estratégicos -->
         <div class="spiritual-names">
-            <span class="name-item">Alexia Rosa de Fogo</span>
-            <span class="name-divider">✦</span>
-            <span class="name-item">Alexia Luz de Ferro</span>
+            <div class="names-row">
+                <span class="name-item">Alexia Rosa de Fogo</span>
+                <span class="name-divider">✦</span>
+                <span class="name-item">Alexia Luz de Ferro</span>
+            </div>
             <p class="spiritual-label">Nomes de Devoção e Ancestralidade</p>
         </div>
 
@@ -314,89 +300,53 @@
 
     <section class="gallery-container">
         <div class="gallery-grid">
-            <!-- Foto 1 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/Al%C3%AA%20(2).png" alt="Alexia Melusine 1">
-                <div class="photo-overlay">
-                    <p class="photo-caption">O DESPERTAR DAS ÁGUAS</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">O DESPERTAR DAS ÁGUAS</p></div>
             </div>
-            <!-- Foto 2 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/Al%C3%AA%20(3).png" alt="Alexia Melusine 2">
-                <div class="photo-overlay">
-                    <p class="photo-caption">SOMBRAS DO SER</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">SOMBRAS DO SER</p></div>
             </div>
-            <!-- Foto 3 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_50_31.png" alt="Alexia Melusine 3">
-                <div class="photo-overlay">
-                    <p class="photo-caption">O OLHAR DO ABISMO</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">O OLHAR DO ABISMO</p></div>
             </div>
-            <!-- Foto 4 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_54_19.png" alt="Alexia Melusine 4">
-                <div class="photo-overlay">
-                    <p class="photo-caption">ESSÊNCIA FLUIDA</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">ESSÊNCIA FLUIDA</p></div>
             </div>
-            <!-- Foto 5 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_56_22.png" alt="Alexia Melusine 5">
-                <div class="photo-overlay">
-                    <p class="photo-caption">MELANCOLIA SAGRADA</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">MELANCOLIA SAGRADA</p></div>
             </div>
-            <!-- Foto 6 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2023%20de%20dez.%20de%202025%2C%2013_57_28.png" alt="Alexia Melusine 6">
-                <div class="photo-overlay">
-                    <p class="photo-caption">TRANSGRESSÃO OCULTA</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">TRANSGRESSÃO OCULTA</p></div>
             </div>
-            <!-- Foto 7 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2015_41_02.png" alt="Alexia Melusine 7">
-                <div class="photo-overlay">
-                    <p class="photo-caption">O EQUILÍBRIO DA ALMA</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">O EQUILÍBRIO DA ALMA</p></div>
             </div>
-            <!-- Foto 8 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2017_49_49.png" alt="Alexia Melusine 8">
-                <div class="photo-overlay">
-                    <p class="photo-caption">SANGUE E MISTÉRIO</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">SANGUE E MISTÉRIO</p></div>
             </div>
-            <!-- Foto 9 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_32_47.png" alt="Alexia Melusine 9">
-                <div class="photo-overlay">
-                    <p class="photo-caption">DEVOÇÃO À ENCRUZILHADA</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">DEVOÇÃO À ENCRUZILHADA</p></div>
             </div>
-            <!-- Foto 10 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_34_32.png" alt="Alexia Melusine 10">
-                <div class="photo-overlay">
-                    <p class="photo-caption">A FORÇA DA POMBAGIRA</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">A FORÇA DA POMBAGIRA</p></div>
             </div>
-            <!-- Foto 11 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025_12_2025%2C%2017_36_45.png" alt="Alexia Melusine 11">
-                <div class="photo-overlay">
-                    <p class="photo-caption">LIBERDADE ANCESTRAL</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">LIBERDADE ANCESTRAL</p></div>
             </div>
-            <!-- Foto 12 -->
             <div class="photo-card">
                 <img src="https://raw.githubusercontent.com/alexialuzdeferro/card-photos/refs/heads/main/ChatGPT%20Image%2025%20de%20dez.%20de%202025%2C%2017_46_21.png" alt="Alexia Melusine 12">
-                <div class="photo-overlay">
-                    <p class="photo-caption">O RITO FINAL</p>
-                </div>
+                <div class="photo-overlay"><p class="photo-caption">O RITO FINAL</p></div>
             </div>
         </div>
     </section>
@@ -418,29 +368,5 @@
         </div>
         <p class="copyright">© 2026 ALEXIA MELUSINE. TODOS OS DIREITOS RESERVADOS AO OCULTO.</p>
     </footer>
-
-    <script>
-        // Simple animation on scroll
-        const cards = document.querySelectorAll('.photo-card');
-        const observerOptions = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        cards.forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = 'all 0.8s ease-out';
-            observer.observe(card);
-        });
-    </script>
 </body>
 </html>
